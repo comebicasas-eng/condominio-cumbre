@@ -1,0 +1,239 @@
+---
+import cielo from '../assets/nubes-en-el-cielo-tiro-vertical.jpg'
+import malaga from '../assets/CDM_MALAGA.png'
+import berlin from '../assets/CDM_BERLIN.png'
+import viena from '../assets/CDM_VIENA.png'
+import praga from '../assets/CDM_PRAGA.png'
+import mts from '../assets/metros.svg'
+import house from '../assets/construccion.svg'
+import bed from '../assets/habitacion.svg'
+import bath from '../assets/baño.svg'
+import Banner from './Banner.astro'
+---
+
+<Banner 
+  spanText="CONOCE NUESTROS"
+  h3Text="4 NUEVOS MODELOS"
+/>
+
+<div id="modelos" class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 overflow-hidden p-5 lg:p-11">
+  <div id="malaga" class="image-container">
+    <div class="visual-block">
+      <div class="image-with-tail">
+        <img src={cielo.src} alt="" class="">
+      </div>
+      <div class="model-overlay">
+        <img src={malaga.src} alt="" fetchpriority="high" class="model-zoom">
+      </div>
+      <div class="absolute top-10 2xl:top-20 left-1/2 transform -translate-x-1/2 text-center">
+        <span class="uppercase font-light lg:text-3xl 2xl:text-4xl text-white tracking-[0.3em]">Casa</span>
+        <span class="uppercase font-acummin-light text-4xl 2xl:text-5xl text-white tracking-[0.3em]">Málaga</spa>
+      </div>
+    </div>
+
+    <div class="specs flex justify-around mt-4 pr-20">
+      <div class="flex flex-col items-center gap-2">
+        <img src={mts.src} alt="Metros" class="w-10 h-10" />
+        <span>108 m²</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src={house.src} alt="Construcción" class="w-10 h-10" />
+        <span>100.45 m²</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src={bed.src} alt="Habitaciones" class="w-10 h-10" />
+        <span>3</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src={bath.src} alt="Baños" class="w-10 h-10" />
+        <span>3 ½</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="berlin" class="image-container">
+    <div class="visual-block">
+      <div class="image-with-tail">
+        <img src={cielo.src} alt="" class="">
+      </div>
+      <div class="model-overlay">
+        <img src={berlin.src} alt="" fetchpriority="high" class="model-zoom">
+      </div>
+      <div class="absolute top-10 2xl:top-20 left-1/2 transform -translate-x-1/2 text-center">
+        <span class="uppercase font-light lg:text-3xl 2xl:text-4xl text-white tracking-[0.3em]">Casa</span>
+        <span class="uppercase font-acummin-light text-4xl 2xl:text-5xl text-white tracking-[0.3em]">Berlín</spa>
+      </div>
+    </div>
+
+    <div class="specs flex justify-around mt-4 pr-20">
+      <div class="flex flex-col items-center gap-2">
+        <img src={mts.src} alt="Metros" class="w-10 h-10" />
+        <span>108 m²</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src={house.src} alt="Construcción" class="w-10 h-10" />
+        <span>99.54 m²</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src={bed.src} alt="Habitaciones" class="w-10 h-10" />
+        <span>3</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src={bath.src} alt="Baños" class="w-10 h-10" />
+        <span>2 ½</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="viena" class="image-container">
+    <div class="visual-block">
+      <div class="image-with-tail">
+        <img src={cielo.src} alt="" class="">
+      </div>
+      <div class="model-overlay">
+        <img src={viena.src} alt="" fetchpriority="high" class="model-zoom">
+      </div>
+      <div class="absolute top-10 2xl:top-20 left-1/2 transform -translate-x-1/2 text-center">
+        <span class="uppercase font-light lg:text-3xl 2xl:text-4xl text-white tracking-[0.3em]">Casa</span>
+        <span class="uppercase font-acummin-light text-4xl 2xl:text-5xl text-white tracking-[0.3em]">Viena</spa>
+      </div>
+    </div>
+
+    <div class="specs flex justify-around mt-4 pr-20">
+      <div class="flex flex-col items-center gap-2">
+        <img src={mts.src} alt="Metros" class="w-10 h-10" />
+        <span>108 m²</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src={house.src} alt="Construcción" class="w-10 h-10" />
+        <span>112.44 m²</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src={bed.src} alt="Habitaciones" class="w-10 h-10" />
+        <span>3</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src={bath.src} alt="Baños" class="w-10 h-10" />
+        <span>2 ½</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="praga" class="image-container">
+    <div class="visual-block">
+      <div class="image-with-tail">
+        <img src={cielo.src} alt="" class="">
+      </div>
+      <div class="model-overlay">
+        <img src={praga.src} alt="" fetchpriority="high" class="model-zoom">
+      </div>
+      <div class="absolute top-10 2xl:top-20 left-1/2 transform -translate-x-1/2 text-center">
+        <span class="uppercase font-light lg:text-3xl 2xl:text-4xl text-white tracking-[0.3em]">Casa</span>
+        <span class="uppercase font-acummin-light text-4xl 2xl:text-5xl text-white tracking-[0.3em]">Praga</spa>
+      </div>
+    </div>
+
+    <div class="specs flex justify-around mt-4 pr-20">
+      <div class="flex flex-col items-center gap-2">
+        <img src={mts.src} alt="Metros" class="w-10 h-10" />
+        <span>108 m²</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src={house.src} alt="Construcción" class="w-10 h-10" />
+        <span>119.11 m²</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src={bed.src} alt="Habitaciones" class="w-10 h-10" />
+        <span>3</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src={bath.src} alt="Baños" class="w-10 h-10" />
+        <span>2 ½</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex flex-col items-center space-y-5 mb-20">
+  <h2 class="font-acummin-light text-lg md:text-3xl lg:text-5xl text-primary">¡ENCUENTRA TU <span class="font-cofo text-2xl md:text-5xl lg:text-7xl text-secondary">CASA PERFECTA!</span></h2>
+  <a href="" class="uppercase md:text-lg lg:text-2xl font-acussim-light bg-primary text-white tracking-[0.5em] px-4 py-2 rounded-br-xl rounded-tr-xl">CONTÁCTANOS</a>
+</div>
+
+<style>
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: stretch; */
+    width: 100%;
+    min-width: 0;
+    flex: 1; /* Permite que crezcan equitativamente */
+    /* height: auto; */
+  }
+
+  .visual-block {
+    position: relative;
+    width: 100%;
+    height: auto; /* Ajusta según tu diseño y zoom */
+    overflow: hidden;
+  }
+
+  .image-with-tail {
+    width: 100%;
+    height: 100%;
+  }
+  .image-with-tail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    -webkit-mask-image: url("../assets/model-clip.svg");
+    mask-image: url("../assets/model-clip.svg");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+    -webkit-mask-mode: alpha;
+    mask-mode: alpha;
+  }
+
+  .model-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Ajusta según el tamaño deseado */
+    height: 100%; /* Ajusta según el tamaño deseado */
+    pointer-events: none; /* Opcional, para que no interfiera con clics */
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    /* Aplica la misma máscara que la imagen de fondo */
+    -webkit-mask-image: url("../assets/model-clip.svg");
+    mask-image: url("../assets/model-clip.svg");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+    -webkit-mask-mode: alpha;
+    mask-mode: alpha;
+  }
+
+  .model-zoom {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom;
+    transform: scale(1.6); /* Ajusta el zoom aquí */
+    transform-origin: bottom left;
+  }
+
+  .specs {
+    font-weight: 500;
+    font-style: italic;
+  }
+</style>

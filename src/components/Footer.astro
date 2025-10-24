@@ -1,0 +1,31 @@
+---
+import Banner from "./Banner.astro";
+import logo from '../assets/LOGO_COLOR_DIGITAL.png'
+---
+<Banner centerImg={logo.src} />
+<div class="px-5 lg:px-11">
+  <div class="grid md:grid-cols-3 gap-4 w-full py-6     md:[justify-items:start] 
+    md:[&>*:nth-child(2)]:justify-self-center 
+    md:[&>*:nth-child(3)]:justify-self-end">
+    <div class="">
+      <h4 class="text-xl lg:text-2xl uppercase font-acummin-light">Dirección</h4>
+      <a href="" class="font-acummin-medium lg:text-xl"><span class="text-lg lg:text-2xl text-primary">Prol. Constituyentes Ote., CP 76246</span> <br>Desarrollo Habitacional Cumbres del Marqués, <br>El Marqués, Qro.</a>
+    </div>
+    <div class="">
+      <h4 class="text-xl lg:text-2xl uppercase font-acummin-light">Teléfono</h4>
+      <a href="" class="font-acummin-medium text-lg lg:text-2xl text-primary">444 102 6900</a>
+    </div>
+    <div class="flex flex-col">
+      <h4 class="text-xl lg:text-2xl uppercase font-acummin-light">Atención a clientes</h4>
+      <a href="" class="font-acummin-medium text-lg lg:text-2xl text-primary">800 215 4415</a>
+      <a href="" class="font-acummin-medium text-lg lg:text-2xl text-primary">(444) 811 1005 ext. 1130</a>
+    </div>
+  </div>
+
+  <div class="font-acummin-medium lg:text-xl py-8">
+    Copyright 2025 COMEBI | <a href="" class="underline">Aviso de Privacidad</a>
+  </div>
+  <div class="font-acummin-light text-xs lg:text-sm text-center">
+    *Imágenes y renders mostrados en este sitio son estrictamente de carácter ilustrativo. Los proyectos podrán cambiar o sufrir de modificaciones de acuerdo al desarrollador. Sujeto a cambios sin previo aviso. Consulta prototipos y amenidades disponibles con tu asesor.
+  </div>
+</div>

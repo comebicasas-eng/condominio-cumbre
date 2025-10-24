@@ -1,0 +1,61 @@
+---
+import Banner from "./Banner.astro";
+import CarouselAmenidades from "./Carousel";
+import terraza from '../assets/SEMBRADO_24E_R01_TERRAZA_1.jpg'
+import alberca from '../assets/SEMBRADO_24E_R01_AVERDE_2.jpg'
+import areaJuegos from '../assets/SEMBRADO_24E_R01_TERRAZA_2.jpg'
+import lago from '../assets/07 LAGO (1).jpg'
+import icoTerrace from '../assets/svg/terraza.svg'
+import icoPool from '../assets/svg/alberca.svg'
+import icoPlayground from '../assets/svg/juegos.svg'
+import icoLake from '../assets/svg/lago.svg'
+
+
+const slides = [
+  {
+    id: 1,
+    title: 'Terraza',
+    icon: icoTerrace.src,
+    image: terraza.src,
+  },
+  {
+    id: 2,
+    title: 'alberca',
+    icon: icoPool.src,
+    image: alberca.src,
+  },
+  {
+    id: 3,
+    title: 'Área de juegos',
+    icon: icoPlayground.src,
+    image: areaJuegos.src,
+  },
+  {
+    id: 4,
+    title: 'Lago',
+    icon: icoLake.src,
+    image: lago.src,
+  }
+];
+
+---
+<Banner 
+  spanText="CON EL"
+  h3Text="mejor equipamiento"
+/>
+
+<div id="container" class="lg:h-svh relative overflow-hidden">
+  <CarouselAmenidades slides={slides} client:load/>
+</div>
+
+<style>
+	#background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+    transform: scaleX(-1);
+	}
+</style>

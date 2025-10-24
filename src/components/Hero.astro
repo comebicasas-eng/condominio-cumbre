@@ -1,0 +1,26 @@
+---
+import h1 from '../assets/SEMBRADO_24E_R01_TREN_VIV_4.jpg'
+import logo from '../assets/LOGO BLN_DIGITAL.png'
+import cdmRaw from '../assets/logocdm.svg?raw';
+
+import NavBar from './NavBar.astro'
+const cdmSvg = cdmRaw.replace(/fill="[^"]*"/g, 'fill="currentColor"');
+---
+<div class="h-screen overflow-hidden relative">
+  <!-- <NavBar /> -->
+  <img src={h1.src} alt="" class="w-full h-full object-cover">
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+    <span class="uppercase font-acummin-light text-xl md:text-4xl lg:text-5xl text-white tracking-[0.5em] lg:tracking-[0.7em] 2xl:tracking-[1em] text-nowrap">Casas en preventa</span>
+  </div>
+  <div class="absolute top-5 left-1/2 -translate-x-1/2 md:translate-0 md:left-5 lg:top-11 lg:left-11">
+    <img src={logo.src} alt="" class="w-60 md:w-72 lg:w-96 h-auto object-cover">
+    <div class="mt-4 md:mt-6 flex justify-center items-baseline gap-2 text-white">
+      <p class="text-xl md:text-3xl lg:text-4xl uppercase font-cofo">Dentro <span class="md:text-lg lg:text-2xl font-acummin-light">de</span></p>
+      <div class="w-16 text-white" set:html={cdmSvg}></div>
+    </div>
+  </div>
+</div>
+
+<style>
+
+</style>

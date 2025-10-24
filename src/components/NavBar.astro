@@ -1,0 +1,151 @@
+---
+import acceso from '../assets/04_CASETA_DE ACCESO.jpg';
+import cdmRaw from '../assets/logocdm.svg?raw';
+const cdmSvg = cdmRaw.replace(/fill="[^"]*"/g, 'fill="currentColor"');
+
+const links = [
+  { href: '#modelos', text: 'Modelos' },
+  { href: '#amenidades', text: 'Amenidades' },
+  { href: '#entorno', text: 'Entorno' },
+  { href: '#contacto', text: 'Contacto' },
+];
+
+const linksMobil = [
+  { href: '#nosotros', text: 'Nosotros' },
+  { href: '#amenidades', text: 'Amenidades' },
+  { href: '#terrenos', text: 'Terrenos' },
+  { href: '#entorno', text: 'Tu Entorno' },
+  { href: '#contacto', text: 'Contacto' },
+  { href: 'https://micasamx.com/', text: '¿Buscas casa en México?' },
+];
+---
+
+<nav class="absolute top-0 left-0 z-50 transition-all duration-300 w-full text-white" id="navbar">
+  <div class="mx-auto lg:px-11 px-5 lg:py-5 py-2 flex justify-between items-center relative font-acummin-medium">
+    <!-- Logo -->
+     <div class="w-10 lg:w-16 h-auto opacity-0 transition-opacity duration-300 text-white" id="logo-container" set:html={cdmSvg}></div>
+    
+    <div class="flex gap-8">
+      <!-- Enlaces de navegación -->
+      <!-- <ul class="hidden lg:flex space-x-8">
+        {links.map((link) => (
+          <li>
+            <a href={link.href} class="text-lg font-helvetica-condensed-oblique hover:text-[#e2a700] transition-colors duration-300">{link.text}</a>
+          </li>
+        ))}
+      </ul> -->
+
+      <button class="focus:outline-none cursor-pointer hover:text-[#e2a700] flex gap-2 items-center" id="menu-toggle">
+        Menu
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú móvil -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 h-screen bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-center transition-transform duration-300 transform translate-x-full"
+  >
+     <div class="absolute top-5 left-5 w-10 lg:w-16 h-auto text-primary" id="logo-container" set:html={cdmSvg}></div>
+    
+    <!-- Botón de cierre -->
+    <button
+      id="menu-close"
+      class="absolute top-5 right-5 focus:outline-none z-[70] cursor-pointer flex gap-2 items-center text-gray-600 hover:text-black"
+    >
+    Cerrar
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8 text-gray-600 hover:text-black">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <div class="md:flex gap-12 lg:gap-80">
+      <div class="w-72 lg:w-96 h-[500px] hidden md:block">
+        <img src={acceso.src} alt="" class="w-full h-full object-cover object-left-bottom">
+      </div>
+      
+      <ul class="flex flex-col justify-center space-y-6">
+        {linksMobil.map((link) => (
+          <li>
+            <a href={link.href} class="text-2xl font-helvetica-condensed-oblique text-[#21272A] hover:text-[#FFB000] transition-colors duration-300 block">{link.text}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const navbar = document.getElementById('navbar');
+    const logoContainer = document.getElementById('logo-container');
+    if (!navbar || !logoContainer) return;
+
+
+    // Elementos interactivos del menú hamburguesa
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (!menuToggle || !menuClose || !mobileMenu) {
+      console.error('No se encontraron los elementos del menú');
+      return;
+    }
+
+    // Función para abrir el menú
+    menuToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('Abriendo menú');
+      mobileMenu.classList.remove("translate-x-full");
+      document.body.classList.add("overflow-hidden");
+    });
+
+    // Función para cerrar el menú
+    function closeMenu() {
+      console.log('Cerrando menú');
+      mobileMenu.classList.add("translate-x-full");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    menuClose.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeMenu();
+    });
+
+    // Cerrar el menú al hacer clic en un enlace
+    const mobileLinks = document.querySelectorAll("#mobile-menu a");
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        // Si es un enlace externo, no cerramos el menú inmediatamente
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#')) {
+          // Pequeño delay para enlaces internos
+          setTimeout(() => {
+            closeMenu();
+          }, 100);
+        }
+      });
+    });
+
+    // Cerrar al hacer clic fuera del contenido del menú
+    mobileMenu.addEventListener("click", (e) => {
+      if (e.target === mobileMenu) {
+        closeMenu();
+      }
+    });
+
+    // Prevenir que los clics dentro del contenido cierren el menú
+    const menuContent = mobileMenu.querySelector('ul');
+    if (menuContent) {
+      menuContent.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+    }
+  });
+</script>

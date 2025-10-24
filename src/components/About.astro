@@ -1,0 +1,55 @@
+---
+import hacienda from '../assets/hacienda.jpg'
+import logo from '../assets/LogoCDM.png'
+---
+<div class="grid lg:grid-cols-2 pr-5 lg:pr-11 py-10 justify-items-center">
+  <div class="image-container">
+    <img src={hacienda.src} alt="" class="image-with-tail">
+  </div>
+  <!-- <div class="w-full lg:w-1/2 lg:h-[722px]">
+    <img src={hacienda.src} alt="" class="w-full h-full object-cover object-left">
+  </div> -->
+  <div class="lg:max-w-[618px] flex flex-col space-y-8 lg:space-y-12 2xl:space-y-14 px-5 lg:px-0 mt-2 lg:mt-0">
+    <p class="text-xl md:text-3xl 2xl:text-4xl font-acummin-light text-primary order-2 lg:order-1">Es <span class="font-acummin-medium">el Macro Desarrollo mejor ubicado de QUERÉTARO</span>, por la cercanía al centro de la ciudad y a las arterias principales</p>
+    <div class="order-1 lg:order-2 flex">
+      <div class="text-xl md:text-3xl lg:text-5xl uppercase w-full font-acummin-light text-primary">
+        <p class="flex lg:justify-end mb-2">Tu nueva vida empieza</p>
+        <h2>EN <span class="text-4xl md:text-6xl lg:text-[88px] font-cofo text-secondary">EL MARQUÉS</span></h2>
+      </div>
+      <img src={logo.src} alt="" class="w-16 h-16 md:w-20 md:h-20 lg:hidden">
+    </div>
+    <div class="lg:flex lg:space-x-20 items-center order-3">
+      <p class=" 2xl:text-lg">cuenta con amplias avenidas, una hacienda restaurada que data de 1890, una vista privilegiada y amenidades futuras, este Desarrollo te ofrece la paz y tranquilidad para vivir, con la cercanía a la ciudad.</p>
+      <img src={logo.src} alt="" class="w-28 h-auto hidden lg:block">
+    </div>
+  </div>
+</div>
+
+<style>
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 290px;
+    /* height: 80vh; */
+  }
+
+  .image-with-tail {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+
+    -webkit-mask-image: url("../assets/svg/malla.svg");
+    mask-image: url("../assets/svg/malla.svg");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: start center; /* colocar la máscara en la base */
+    mask-position: start center;
+    -webkit-mask-mode: alpha;
+    mask-mode: alpha;
+  }
+</style>

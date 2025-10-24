@@ -1,0 +1,14 @@
+---
+import Banner from "./Banner.astro";
+import MapView from "./MapView";
+
+
+---
+<Banner 
+  spanText="A 15 MIN DE LA CIUDAD"
+  h3Text="CONOCE TU ENTORNO" 
+/>
+
+<div id="container" class="relative overflow-hidden p-5 lg:p-11">
+  <MapView client:load/>
+</div>
