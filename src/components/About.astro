@@ -1,10 +1,17 @@
 ---
-import hacienda from '../assets/hacienda.jpg'
+// import hacienda from '../assets/hacienda.jpg'
+import hacienda from '../assets/hacienda_qro.mp4'
 import logo from '../assets/LogoCDM.png'
 ---
 <div class="grid lg:grid-cols-2 pr-5 lg:pr-11 py-10 justify-items-center">
   <div class="image-container">
-    <img src={hacienda.src} alt="" class="image-with-tail">
+  <video muted autoplay loop transition:persist class="image-with-tail">
+    <source
+      src={hacienda}
+      type="video/mp4"
+    />
+  </video>
+    <!-- <img src={hacienda.src} alt="" class="image-with-tail"> -->
   </div>
   <!-- <div class="w-full lg:w-1/2 lg:h-[722px]">
     <img src={hacienda.src} alt="" class="w-full h-full object-cover object-left">
@@ -51,5 +58,26 @@ import logo from '../assets/LogoCDM.png'
     mask-position: start center;
     -webkit-mask-mode: alpha;
     mask-mode: alpha;
+  }
+
+    /* Tablets: usar malla2.svg (ej.: 768px+) */
+  @media (min-width: 768px) and (max-width: 1023.98px) {
+    .image-with-tail {
+      -webkit-mask-image: url("../assets/malla2.svg");
+      mask-image: url("../assets/malla2.svg");
+    }
+  }
+
+    /* En pantallas 2xl (>=1536px) usar malla2.svg y hacer que la máscara cubra toda la altura */
+  @media (min-width: 1536px) {
+    .image-with-tail {
+      -webkit-mask-image: url("../assets/malla2.svg");
+      mask-image: url("../assets/malla2.svg");
+    }
+  }
+
+  /* Optional: fallback if browser doesn't support mask-mode/ -webkit- properties */
+  @supports not ((-webkit-mask-image: url("../assets/malla.svg")) or (mask-image: url("../assets/malla.svg"))) {
+    .image-with-tail { /* keep visual usable */ opacity: 0.98; }
   }
 </style>

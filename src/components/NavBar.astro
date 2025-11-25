@@ -1,6 +1,7 @@
 ---
 import acceso from '../assets/04_CASETA_DE ACCESO.jpg';
 import cdmRaw from '../assets/logocdm.svg?raw';
+import SocialLinks from './SocialLinks.astro';
 const cdmSvg = cdmRaw.replace(/fill="[^"]*"/g, 'fill="currentColor"');
 
 const links = [
@@ -16,6 +17,7 @@ const linksMobil = [
   { href: '#modelos', text: 'Modelos' },
   { href: '#entorno', text: 'Tu Entorno' },
   { href: '#contacto', text: 'Contacto' },
+  
   { href: 'https://micasamx.com/', text: '¿Buscas casa en México?' },
 ];
 ---
@@ -27,15 +29,15 @@ const linksMobil = [
     
     <div class="flex gap-8">
       <!-- Enlaces de navegación -->
-      <!-- <ul class="hidden lg:flex space-x-8">
+      <ul class="hidden lg:flex space-x-8">
         {links.map((link) => (
           <li>
             <a href={link.href} class="text-lg font-helvetica-condensed-oblique hover:text-[#e2a700] transition-colors duration-300">{link.text}</a>
           </li>
         ))}
-      </ul> -->
+      </ul>
 
-      <button class="focus:outline-none cursor-pointer hover:text-[#e2a700] flex gap-2 items-center" id="menu-toggle">
+      <button class="lg:hidden focus:outline-none cursor-pointer hover:text-[#e2a700] flex gap-2 items-center" id="menu-toggle">
         Menu
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -74,6 +76,8 @@ const linksMobil = [
           </li>
         ))}
       </ul>
+
+      <SocialLinks />
     </div>
 
   </div>

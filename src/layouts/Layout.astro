@@ -13,9 +13,36 @@ import "../styles/global.css";
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
 		<link href='https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css' rel='stylesheet' />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Cumbres del Marqués - Querétaro</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+	var anchors = document.querySelectorAll('a[href^="#"]');
+	for (var i = 0; i < anchors.length; i++) {
+		anchors[i].addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
+		e.preventDefault();
+		const target = document.querySelector(this.getAttribute('href')!); // Añadir el signo de no-null para aclarar el tipo
+		if (target) {
+			target.scrollIntoView({
+			behavior: 'smooth'
+			});
+		}
+		});
+	}
+	});
+</script>
+
+<script type="text/javascript" id="zsiqchat" is:inline> //script del chat
+	var $zoho = $zoho || {};
+	$zoho.salesiq = $zoho.salesiq || {
+		widgetcode: "d71e1bfb086a9de64012a970416096e7fc2c05ab0e64e53edb99d0ce04e0cdcd",
+		values: {}, ready: function () { }
+	}; var d = document; s = d.createElement("script");
+	s.type = "text/javascript"; s.id = "zsiqscript"; s.defer = true; s.src = "https://salesiq.zoho.com/widget";
+	t = d.getElementsByTagName("script")[0]; t.parentNode.insertBefore(s, t);
+</script>

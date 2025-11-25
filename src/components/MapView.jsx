@@ -314,7 +314,7 @@ export default function MapView() {
       <div className="flex-1 relative">
         <div id="map" className="w-full h-full" />
         {/* Filtros flotantes sobre el mapa */}
-        <div className="absolute top-6 left-10 z-30 flex gap-4 px-4 py-2">
+        <div className="absolute top-6 left-1/2 lg:left-10 -translate-x-1/2 lg:-translate-0 z-30 flex gap-4 px-4 py-2">
           {filterOptions.map((opt) => (
             <FilterButton
               key={opt.key}

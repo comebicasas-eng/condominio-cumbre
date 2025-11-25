@@ -1,14 +1,121 @@
 ---
-import cielo from '../assets/nubes-en-el-cielo-tiro-vertical.jpg'
-import malaga from '../assets/CDM_MALAGA.png'
-import berlin from '../assets/CDM_BERLIN.png'
-import viena from '../assets/CDM_VIENA.png'
-import praga from '../assets/CDM_PRAGA.png'
+import cielo from '../assets/nubes-en-el-cielo-tiro-vertical.webp'
+import berlin from '../assets/CDM_BERLIN.webp'
+import malaga from '../assets/CDM_MALAGA.webp'
+import viena from '../assets/CDM_VIENA.webp'
+import praga from '../assets/CDM_PRAGA.webp'
+import roma from '../assets/CDM_ROMA.webp'
+
+import berlinPA from '../assets/berlin/BERLIN_R2_PA2.webp'
+import berlinPB from '../assets/berlin/BERLIN_R2_PB.webp'
+import malagaPA from '../assets/malaga/MALAGA_PA_R2.webp'
+import malagaPB from '../assets/malaga/MALAGA_PB_R2.webp'
+import pragaPA from '../assets/praga/PRAGA_R2_PA.webp'
+import pragaPB from '../assets/praga/PRAGA_R2_PB.webp'
+import romaPA from '../assets/roma/ROMA_2A_PA.webp'
+import romaPB from '../assets/roma/ROMA_2A_PB.webp'
+import vienaPA from '../assets/viena/VIENA_R2_PA.webp'
+import vienaPB from '../assets/viena/VIENA_R2_PB.webp'
+
 import mts from '../assets/metros.svg'
 import house from '../assets/construccion.svg'
 import bed from '../assets/habitacion.svg'
 import bath from '../assets/baño.svg'
 import Banner from './Banner.astro'
+
+// Datos de los modelos
+const modelos = [
+  {
+    id: 'berlin',
+    nombre: 'Berlín',
+    imagen: berlin.src,
+    pb: berlinPB.src,
+    pa: berlinPA.src,
+    terreno: '108 m²',
+    construccion: '99.54 m²',
+    habitaciones: '3',
+    banos: '2 ½',
+    descripcion: 'Casa Berlín ofrece espacios funcionales y bien distribuidos, con áreas sociales amplias y tres recámaras pensadas para la comodidad de toda la familia. La recámara principal cuenta con baño privado, ideal para mayor privacidad.',
+    caracteristicas: [
+      'Diseño contemporáneo',
+      'Iluminación natural',
+      'Área de lavandería',
+      'Patio trasero'
+    ]
+  },
+  {
+    id: 'malaga',
+    nombre: 'Málaga',
+    imagen: malaga.src,
+    pb: malagaPB.src,
+    pa: malagaPA.src,
+    terreno: '108 m²',
+    construccion: '100.45 m²',
+    habitaciones: '3',
+    banos: '3 ½',
+    descripcion: 'Casa Málaga Una casa diseñada para ofrecer amplitud, funcionalidad y privacidad para cada miembro de la familia. Sus espacios interiores se integran de forma armoniosa para brindar comodidad en cada momento del día.',
+    caracteristicas: [
+      'Sala-comedor integrada',
+      'Cocina equipada',
+      'Jardín privado',
+      'Estacionamiento para 2 autos'
+    ]
+  },
+  {
+    id: 'praga',
+    nombre: 'Praga',
+    imagen: praga.src,
+    pb: pragaPB.src,
+    pa: pragaPA.src,
+    terreno: '108 m²',
+    construccion: '119.11 m²',
+    habitaciones: '3',
+    banos: '2 ½',
+    descripcion: 'Casa Praga ofrece una distribución práctica y cómoda, con espacios sociales bien integrados y tres recámaras amplias. Su recámara principal con vestidor y baño brinda un área privada ideal para el descanso familiar.',
+    caracteristicas: [
+      'Mayor área de construcción',
+      'Walk-in closet',
+      'Balcón',
+      'Estudio opcional'
+    ]
+  },
+  {
+    id: 'roma',
+    nombre: 'Roma',
+    imagen: roma.src,
+    pb: romaPB.src,
+    pa: romaPA.src,
+    terreno: '86.85 m²',
+    construccion: '81 m²',
+    habitaciones: '3',
+    banos: '2 ½',
+    descripcion: 'Casa Roma aprovecha al máximo cada metro, ofreciendo una distribución funcional con áreas sociales amplias y tres recámaras cómodas. Su recámara principal y los espacios bien integrados lo convierten en una opción ideal para familias que buscan practicidad y confort.',
+    caracteristicas: [
+      'Cochera',
+      'Cocina',
+      'Patio de servicio',
+      '½ baño en planta baja'
+    ]
+  },
+    {
+    id: 'viena',
+    nombre: 'Viena',
+    imagen: viena.src,
+    pb: vienaPB.src,
+    pa: vienaPA.src,
+    terreno: '108 m²',
+    construccion: '112.44 m²',
+    habitaciones: '3',
+    banos: '2 ½',
+    descripcion: 'Casa Viena destaca por su distribución funcional, con amplias áreas sociales, estancia de TV y tres recámaras diseñadas para ofrecer comodidad y privacidad. Ideal para familias que buscan espacios bien aprovechados.',
+    caracteristicas: [
+      'Recámara principal con baño',
+      'Closets amplios',
+      'Terraza',
+      'Acabados de primera'
+    ]
+  },
+];
 ---
 
 <Banner 
@@ -16,141 +123,153 @@ import Banner from './Banner.astro'
   h3Text="4 NUEVOS MODELOS"
 />
 
-<div id="modelos" class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 overflow-hidden p-5 lg:p-11">
-  <div id="malaga" class="image-container">
-    <div class="visual-block">
-      <div class="image-with-tail">
-        <img src={cielo.src} alt="" class="">
+<div id="modelos" class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 overflow-hidden p-5 lg:p-11">
+  {modelos.map((modelo) => (
+    <button type="button" class="model-card" data-model={modelo.id}>
+      <div id={modelo.id} class="image-container">
+        <div class="visual-block">
+          <div class="image-with-tail">
+            <img src={cielo.src} alt="" class="" loading="lazy">
+          </div>
+          <div class="model-overlay">
+            <img src={modelo.imagen} alt="" loading="lazy" class="model-zoom">
+          </div>
+          <div class="absolute top-10 2xl:top-20 left-1/2 transform -translate-x-1/2 text-center">
+            <span class="uppercase font-light lg:text-3xl 2xl:text-4xl text-white tracking-[0.3em]">Casa</span>
+            <span class="uppercase font-acummin-light text-4xl 2xl:text-5xl text-white tracking-[0.3em]">{modelo.nombre}</span>
+          </div>
+        </div>
+    
+        <div class="specs flex justify-around mt-4 pr-20">
+          <div class="flex flex-col items-center gap-2">
+            <img src={mts.src} alt="Metros" class="w-10 h-10" loading="lazy" />
+            <span>{modelo.terreno}</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <img src={house.src} alt="Construcción" class="w-10 h-10" loading="lazy" />
+            <span>{modelo.construccion}</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <img src={bed.src} alt="Habitaciones" class="w-10 h-10" loading="lazy" />
+            <span>{modelo.habitaciones}</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <img src={bath.src} alt="Baños" class="w-10 h-10" loading="lazy" />
+            <span>{modelo.banos}</span>
+          </div>
+        </div>
       </div>
-      <div class="model-overlay">
-        <img src={malaga.src} alt="" fetchpriority="high" class="model-zoom">
-      </div>
-      <div class="absolute top-10 2xl:top-20 left-1/2 transform -translate-x-1/2 text-center">
-        <span class="uppercase font-light lg:text-3xl 2xl:text-4xl text-white tracking-[0.3em]">Casa</span>
-        <span class="uppercase font-acummin-light text-4xl 2xl:text-5xl text-white tracking-[0.3em]">Málaga</spa>
-      </div>
-    </div>
+    </button>
+  ))}
+</div>
 
-    <div class="specs flex justify-around mt-4 pr-20">
-      <div class="flex flex-col items-center gap-2">
-        <img src={mts.src} alt="Metros" class="w-10 h-10" />
-        <span>108 m²</span>
+<!-- Modal de información del modelo -->
+<div
+  id="model-modal"
+  class="fixed inset-0 h-screen bg-white z-[60] flex flex-col items-center justify-center p-8 transition-transform duration-300 transform translate-x-full overflow-y-auto"
+>
+  <!-- Botón de cierre -->
+  <button
+    id="modal-close"
+    class="absolute top-5 right-5 focus:outline-none z-[70] cursor-pointer flex gap-2 items-center text-gray-600 hover:text-black"
+  >
+    Cerrar
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8 text-gray-600 hover:text-black">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <!-- Contenido del modal -->
+  <div class="max-w-6xl w-full mt-12">
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <!-- Imagen del modelo -->
+      <div class="w-full">
+        <img id="modal-image" src="" alt="" class="w-full h-auto object-contain">
+        <div id="modal-plantas" class="mt-4 flex gap-3 overflow-x-auto no-scrollbar hover:cursor-zoom-in">
+        <!-- thumbnails se inyectan aquí -->
+        </div>
       </div>
-      <div class="flex flex-col items-center gap-2">
-        <img src={house.src} alt="Construcción" class="w-10 h-10" />
-        <span>100.45 m²</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <img src={bed.src} alt="Habitaciones" class="w-10 h-10" />
-        <span>3</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <img src={bath.src} alt="Baños" class="w-10 h-10" />
-        <span>3 ½</span>
+
+      <!-- Información del modelo -->
+      <div class="space-y-6">
+        <div>
+          <span class="uppercase font-light text-2xl text-gray-600 tracking-[0.3em]">Casa</span>
+          <h2 id="modal-title" class="uppercase font-acummin-light text-5xl text-primary tracking-[0.3em]"></h2>
+        </div>
+
+        <!-- Especificaciones -->
+        <div class="grid grid-cols-2 gap-4 py-6 border-y border-gray-200">
+          <div class="flex items-center gap-3">
+            <img src={mts.src} alt="Terreno" class="w-8 h-8" />
+            <div>
+              <p class="text-sm text-gray-600">Terreno</p>
+              <p id="modal-terreno" class="font-semibold"></p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <img src={house.src} alt="Construcción" class="w-8 h-8" />
+            <div>
+              <p class="text-sm text-gray-600">Construcción</p>
+              <p id="modal-construccion" class="font-semibold"></p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <img src={bed.src} alt="Habitaciones" class="w-8 h-8" />
+            <div>
+              <p class="text-sm text-gray-600">Habitaciones</p>
+              <p id="modal-habitaciones" class="font-semibold"></p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <img src={bath.src} alt="Baños" class="w-8 h-8" />
+            <div>
+              <p class="text-sm text-gray-600">Baños</p>
+              <p id="modal-banos" class="font-semibold"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Descripción -->
+        <div>
+          <h3 class="text-xl font-semibold mb-3 text-primary">Descripción</h3>
+          <p id="modal-descripcion" class="text-gray-700"></p>
+        </div>
+
+        <!-- Características -->
+        <div>
+          <h3 class="text-xl font-semibold mb-3 text-primary">Características</h3>
+          <ul id="modal-caracteristicas" class="space-y-2 text-gray-700"></ul>
+        </div>
+
+        <!-- Botón de contacto -->
+        <div class="pt-4">
+          <a href="#contacto" id="contact-button" class="uppercase md:text-lg font-acussim-light bg-primary text-white tracking-[0.3em] px-6 py-3 rounded-br-xl rounded-tr-xl inline-block hover:bg-secondary transition-colors">
+            ME INTERESA
+          </a>
+        </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div id="berlin" class="image-container">
-    <div class="visual-block">
-      <div class="image-with-tail">
-        <img src={cielo.src} alt="" class="">
-      </div>
-      <div class="model-overlay">
-        <img src={berlin.src} alt="" fetchpriority="high" class="model-zoom">
-      </div>
-      <div class="absolute top-10 2xl:top-20 left-1/2 transform -translate-x-1/2 text-center">
-        <span class="uppercase font-light lg:text-3xl 2xl:text-4xl text-white tracking-[0.3em]">Casa</span>
-        <span class="uppercase font-acummin-light text-4xl 2xl:text-5xl text-white tracking-[0.3em]">Berlín</spa>
-      </div>
-    </div>
-
-    <div class="specs flex justify-around mt-4 pr-20">
-      <div class="flex flex-col items-center gap-2">
-        <img src={mts.src} alt="Metros" class="w-10 h-10" />
-        <span>108 m²</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <img src={house.src} alt="Construcción" class="w-10 h-10" />
-        <span>99.54 m²</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <img src={bed.src} alt="Habitaciones" class="w-10 h-10" />
-        <span>3</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <img src={bath.src} alt="Baños" class="w-10 h-10" />
-        <span>2 ½</span>
-      </div>
-    </div>
-  </div>
-
-  <div id="viena" class="image-container">
-    <div class="visual-block">
-      <div class="image-with-tail">
-        <img src={cielo.src} alt="" class="">
-      </div>
-      <div class="model-overlay">
-        <img src={viena.src} alt="" fetchpriority="high" class="model-zoom">
-      </div>
-      <div class="absolute top-10 2xl:top-20 left-1/2 transform -translate-x-1/2 text-center">
-        <span class="uppercase font-light lg:text-3xl 2xl:text-4xl text-white tracking-[0.3em]">Casa</span>
-        <span class="uppercase font-acummin-light text-4xl 2xl:text-5xl text-white tracking-[0.3em]">Viena</spa>
-      </div>
-    </div>
-
-    <div class="specs flex justify-around mt-4 pr-20">
-      <div class="flex flex-col items-center gap-2">
-        <img src={mts.src} alt="Metros" class="w-10 h-10" />
-        <span>108 m²</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <img src={house.src} alt="Construcción" class="w-10 h-10" />
-        <span>112.44 m²</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <img src={bed.src} alt="Habitaciones" class="w-10 h-10" />
-        <span>3</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <img src={bath.src} alt="Baños" class="w-10 h-10" />
-        <span>2 ½</span>
-      </div>
-    </div>
-  </div>
-
-  <div id="praga" class="image-container">
-    <div class="visual-block">
-      <div class="image-with-tail">
-        <img src={cielo.src} alt="" class="">
-      </div>
-      <div class="model-overlay">
-        <img src={praga.src} alt="" fetchpriority="high" class="model-zoom">
-      </div>
-      <div class="absolute top-10 2xl:top-20 left-1/2 transform -translate-x-1/2 text-center">
-        <span class="uppercase font-light lg:text-3xl 2xl:text-4xl text-white tracking-[0.3em]">Casa</span>
-        <span class="uppercase font-acummin-light text-4xl 2xl:text-5xl text-white tracking-[0.3em]">Praga</spa>
-      </div>
-    </div>
-
-    <div class="specs flex justify-around mt-4 pr-20">
-      <div class="flex flex-col items-center gap-2">
-        <img src={mts.src} alt="Metros" class="w-10 h-10" />
-        <span>108 m²</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <img src={house.src} alt="Construcción" class="w-10 h-10" />
-        <span>119.11 m²</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <img src={bed.src} alt="Habitaciones" class="w-10 h-10" />
-        <span>3</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <img src={bath.src} alt="Baños" class="w-10 h-10" />
-        <span>2 ½</span>
-      </div>
-    </div>
+<!-- Modal de zoom de imagen -->
+<div
+  id="image-zoom-modal"
+  class="fixed inset-0 bg-black bg-opacity-95 z-[80] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300"
+>
+  <button
+    id="zoom-modal-close"
+    class="absolute top-5 right-5 focus:outline-none z-[90] cursor-pointer text-white hover:text-gray-300"
+    aria-label="Cerrar zoom"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-10 h-10">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+  
+  <div class="max-w-7xl max-h-[90vh] w-full h-full flex flex-col items-center justify-center">
+    <img id="zoomed-image" src="" alt="" class="max-w-full max-h-full object-contain">
+    <p id="zoomed-caption" class="text-white text-center mt-4 text-lg"></p>
   </div>
 </div>
 
@@ -160,20 +279,32 @@ import Banner from './Banner.astro'
 </div>
 
 <style>
+  .model-card {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+  }
+
   .image-container {
     display: flex;
     flex-direction: column;
-    /* align-items: stretch; */
     width: 100%;
     min-width: 0;
-    flex: 1; /* Permite que crezcan equitativamente */
-    /* height: auto; */
+    flex: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .model-card:hover .image-container {
+    transform: translateY(-5px);
   }
 
   .visual-block {
     position: relative;
     width: 100%;
-    height: auto; /* Ajusta según tu diseño y zoom */
+    height: auto;
     overflow: hidden;
   }
 
@@ -181,6 +312,7 @@ import Banner from './Banner.astro'
     width: 100%;
     height: 100%;
   }
+  
   .image-with-tail img {
     width: 100%;
     height: 100%;
@@ -202,15 +334,13 @@ import Banner from './Banner.astro'
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%; /* Ajusta según el tamaño deseado */
-    height: 100%; /* Ajusta según el tamaño deseado */
-    pointer-events: none; /* Opcional, para que no interfiera con clics */
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
     z-index: 2;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-
-    /* Aplica la misma máscara que la imagen de fondo */
     -webkit-mask-image: url("../assets/model-clip.svg");
     mask-image: url("../assets/model-clip.svg");
     -webkit-mask-size: 100% 100%;
@@ -228,7 +358,7 @@ import Banner from './Banner.astro'
     height: auto;
     object-fit: contain;
     object-position: bottom;
-    transform: scale(1.6); /* Ajusta el zoom aquí */
+    transform: scale(1.6);
     transform-origin: bottom left;
   }
 
@@ -236,4 +366,236 @@ import Banner from './Banner.astro'
     font-weight: 500;
     font-style: italic;
   }
+
+  /* Plantas thumbnails */
+  #modal-plantas {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  .planta-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .planta-thumb {
+    width: 100%;
+    height: auto;
+    max-height: 160px;
+    border-radius: 8px;
+    object-fit: contain;
+    cursor: zoom-in;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    border: 2px solid transparent;
+    background: #fff;
+  }
+  
+  .planta-thumb:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+  }
+
+  .planta-thumb.active {
+    border-color: rgba(15,185,129,0.95);
+    box-shadow: 0 12px 30px rgba(15,185,129,0.12);
+  }
+
+  .planta-caption {
+    font-size: 0.875rem;
+    color: #374151;
+    text-align: center;
+    line-height: 1;
+  }
+
+  /* Modal de zoom */
+  #image-zoom-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (max-width: 768px) {
+    #modal-plantas { grid-template-columns: 1fr; }
+    .planta-thumb { max-height: 120px; }
+  }
+  
+  @media (min-width: 1024px) {
+    .planta-thumb { max-height: 220px; }
+  }
+  
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 </style>
+
+<script define:vars={{ modelos }} is:inline>
+  document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById("model-modal");
+    const modalClose = document.getElementById("modal-close");
+    const modelCards = document.querySelectorAll(".model-card");
+    
+    // Elementos del modal de zoom
+    const zoomModal = document.getElementById("image-zoom-modal");
+    const zoomModalClose = document.getElementById("zoom-modal-close");
+    const zoomedImage = document.getElementById("zoomed-image");
+    const zoomedCaption = document.getElementById("zoomed-caption");
+
+    if (!modal || !modalClose || !zoomModal) {
+      console.error('No se encontraron los elementos del modal');
+      return;
+    }
+
+    // Función para abrir el modal de zoom
+    function openZoomModal(imageSrc, caption) {
+      zoomedImage.src = imageSrc;
+      zoomedCaption.textContent = caption;
+      zoomModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Función para cerrar el modal de zoom
+    function closeZoomModal() {
+      zoomModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Función para abrir el modal con la información del modelo
+    function openModal(modelId) {
+      const modelo = modelos.find(m => m.id === modelId);
+      if (!modelo) return;
+
+      // Actualizar contenido del modal
+      document.getElementById("modal-image").src = modelo.imagen;
+      document.getElementById("modal-title").textContent = modelo.nombre;
+      document.getElementById("modal-terreno").textContent = modelo.terreno;
+      document.getElementById("modal-construccion").textContent = modelo.construccion;
+      document.getElementById("modal-habitaciones").textContent = modelo.habitaciones;
+      document.getElementById("modal-banos").textContent = modelo.banos;
+      document.getElementById("modal-descripcion").textContent = modelo.descripcion;
+
+      // Actualizar características
+      const caracteristicasList = document.getElementById("modal-caracteristicas");
+      caracteristicasList.innerHTML = modelo.caracteristicas
+        .map(c => `<li class="flex items-center gap-2"><svg class="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>${c}</li>`)
+        .join('');
+
+      // Plantas: pb (planta baja) y pa (planta alta)
+      const plantasContainer = document.getElementById('modal-plantas');
+      plantasContainer.innerHTML = '';
+
+      const plantas = [];
+      if (modelo.pb) plantas.push({ src: modelo.pb, label: 'Planta Baja' });
+      if (modelo.pa) plantas.push({ src: modelo.pa, label: 'Planta Alta' });
+
+      if (plantas.length === 0) {
+        plantasContainer.innerHTML = '<p class="text-sm text-gray-500">No hay plantas disponibles</p>';
+      } else {
+        plantas.forEach((p, idx) => {
+          const item = document.createElement('div');
+          item.className = 'planta-item';
+
+          const thumb = document.createElement('img');
+          thumb.src = p.src;
+          thumb.alt = `${p.label} - ${modelo.nombre}`;
+          thumb.title = 'Clic para ampliar';
+          thumb.className = 'planta-thumb' + (idx === 0 ? ' active' : '');
+
+          const caption = document.createElement('div');
+          caption.className = 'planta-caption';
+          caption.textContent = p.label;
+
+          // Click: abrir modal de zoom
+          thumb.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openZoomModal(p.src, `${modelo.nombre} - ${p.label}`);
+          });
+
+          item.appendChild(thumb);
+          item.appendChild(caption);
+          plantasContainer.appendChild(item);
+        });
+      }
+
+      // Mostrar modal
+      modal.classList.remove("translate-x-full");
+      document.body.classList.add("overflow-hidden");
+    }
+
+    // Función para cerrar el modal
+    function closeModal() {
+      modal.classList.add("translate-x-full");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    // Evento para abrir el modal al hacer clic en un modelo
+    modelCards.forEach(card => {
+      card.addEventListener("click", (e) => {
+        e.preventDefault();
+        const modelId = card.getAttribute("data-model");
+        openModal(modelId);
+      });
+    });
+
+    // Evento para cerrar el modal
+    modalClose.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+
+    // Cerrar modal de zoom
+    zoomModalClose.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeZoomModal();
+    });
+
+    // Evento para el botón "ME INTERESA"
+    const contactButton = document.getElementById('contact-button');
+    if (contactButton) {
+      contactButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal(); // Cerrar el modal primero
+        
+        // Pequeño delay para que la animación del modal se complete
+        setTimeout(() => {
+          const contactSection = document.getElementById('contacto');
+          if (contactSection) {
+            contactSection.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }, 300);
+      });
+    }
+
+    // Cerrar modal de zoom al hacer clic fuera de la imagen
+    zoomModal.addEventListener("click", (e) => {
+      if (e.target === zoomModal) {
+        closeZoomModal();
+      }
+    });
+
+    // Cerrar al hacer clic fuera del contenido del modal principal
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Cerrar con tecla Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if (!zoomModal.classList.contains('active') && !modal.classList.contains("translate-x-full")) {
+          closeModal();
+        } else if (zoomModal.classList.contains('active')) {
+          closeZoomModal();
+        }
+      }
+    });
+  });
+</script>
